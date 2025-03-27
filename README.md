@@ -21,8 +21,7 @@ A workshop for building a weather app with HTML, CSS, and JavaScript. This proje
    - Replace `YOUR_API_KEY` in the JavaScript file with your actual API key
 
 3. Open the project
-   - Open the project folder in Visual Studio Code
-   - You can use the Live Server extension to run the project
+   - Open the project folder in Visual Studio Code (or editor of choice)
 
 ## Workshop Files
 
