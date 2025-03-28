@@ -19,6 +19,9 @@ A workshop for building a weather app with HTML, CSS, and JavaScript. This proje
    - Sign up for a free account at [OpenWeatherMap](https://openweathermap.org/api)
    - Generate an API key in your account dashboard
    - Replace `YOUR_API_KEY` in the JavaScript file with your actual API key
+   - Use one of these 3 API keys: 
+	- fe43774f5d9498eca1a93c8d20e6d41a
+	- 3b8203ca67a83e786e4bb6deac458e1e
 
 3. Open the project
    - Open the project folder in Visual Studio Code (or editor of choice)
