@@ -1,5 +1,5 @@
 const apiKey = "fe43774f5d9498eca1a93c8d20e6d41a"; // Replace with your OpenWeatherMap API key
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=";
 
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
@@ -18,9 +18,9 @@ async function checkWeather(city) {
         const data = await response.json();
 
         document.querySelector(".city").innerHTML = data.name;
-        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
+        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°F";
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-        document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+        document.querySelector(".wind").innerHTML = data.wind.speed + " mph";
 
         // Update weather icon based on weather condition
         if (data.weather[0].main == "Clouds") {
