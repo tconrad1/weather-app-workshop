@@ -16,7 +16,7 @@ async function checkWeather(city) {
         //STEP 2.2: Extract the weather data from the API response
         const data = await response.json();
 
-        //STEP 2.3: Update the DOM elements with the weather data °F
+        //STEP 2.3: Update the DOM elements with the weather data ï¿½F
         document.querySelector(".city").innerHTML = data.name;
         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "&deg;F";
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
