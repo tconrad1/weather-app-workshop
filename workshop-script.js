@@ -28,10 +28,10 @@ const weatherIcon = document.querySelector(".weather-icon");
   2. Update the UI with the weather information
   3. Handle any errors that occur
 */
-async function checkWeather() {
+async function checkWeather(city) {
     try {
         //STEP 2.1: Fetch weather data from the API using the city parameter
-        const response = await fetch(apiUrl + `&appid=${apiKey}`);
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
         //STEP 2.7: Check if the city exists (handle 404 error)
         // If the city doesn't exist, show error message and hide weather info
 
@@ -44,7 +44,12 @@ async function checkWeather() {
         // - Update temperature
         // - Update humidity
         // - Update wind speed
-        
+
+        document.querySelector(".city").innerHTML = data.name;
+        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "&deg;F";
+        document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+        document.querySelector(".wind").innerHTML = data.wind.speed + " mph";
+
         //STEP 2.6: Update the weather icon based on weather conditions
         // Different weather conditions: Clouds, Clear, Rain, Drizzle, Mist, Snow
         
@@ -78,32 +83,11 @@ async function checkWeather() {
     }
 }
 
-checkWeather();
 // ====== STEP 2.5: Add Event Listeners ======
 // TODO: Add a click event listener to the search button
 // TODO: Add a keypress event listener to the search input for the Enter key
 
-async function checkWeather(city) {
-    try {
 
-        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-
-        if (response.status == 404 ){
-            document.querySelector(".error").style.display = "block";
-            document.querySelector(".weather").style.display = "none";            
-        }
-        const data = await response.json();
-
-        document.querySelector(".city").innerHTML = data.name;
-        document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "&deg;F";
-        document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-        document.querySelector(".wind").innerHTML = data.wind.speed + " mph";
-
-
-    } catch (error) {
-        console.error("Error fetching weather data:", error);
-    }
-}
 searchBtn.addEventListener("click", () => {
     checkWeather(searchBox.value);
 });
